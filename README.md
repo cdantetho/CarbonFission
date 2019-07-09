@@ -5,7 +5,7 @@
 
 ## - nuke_uwu Description -
 ##### Multi-function Discord Nuker bot coded in Python
-##### Current Version: v1.0.2
+##### Current Version: v1.0.3
 ##### Contributors: 
  - Sreud (@𝕊 𝕣 𝕖 𝕦 𝕕#1950)
  - Dante (Dante#3456)

@@ -1,9 +1,7 @@
 # nuke_uwu #
 #---------------------------------#
 # Multi-function Discord Nuker bot coded in Python #
-# Version: v1.0.2 #
-# By: Dante + Sreud #
-# Github Repo: https://github.com/cdantetho/nuke_uwu #
+# Version: v1.0.3 #
 #---------------------------------#
 
 import discord
