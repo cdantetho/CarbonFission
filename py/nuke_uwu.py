@@ -1,7 +1,7 @@
 # nuke_uwu #
 #---------------------------------#
 # Multi-function Discord Nuker bot coded in Python #
-# Version: v1.0.3 #
+# Version: v1.1.1 #
 #---------------------------------#
 
 import discord
