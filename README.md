@@ -5,8 +5,8 @@
 ##### Multi-function Discord bot coded in Python
 ##### Current Version: v1.1.9
 ##### Contributors: 
- - Dante (Dante#3456)
- - Sreud (@𝕊 𝕣 𝕖 𝕦 𝕕#1950)
+ - Dante
+ - Sreud
 
 ----------------------
 
