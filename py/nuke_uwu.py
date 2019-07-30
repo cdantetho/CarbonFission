@@ -27,7 +27,7 @@ from discord.utils import get
 ## --   INITIALIZATION   -- ##
 ## --                    -- ##
 
-print(f"Bot Status: Loading...")
+print("Bot Status: Loading...")
 
 ## -- Declares the bot, passes it a prefix and lets it know to (hopefully) only listen to itself. -- ##
 bot = commands.Bot(command_prefix='&&')
@@ -56,10 +56,11 @@ async def on_ready():
 
 
 
-## --              -- ##
-## --   COMMANDS   -- ##
-## --              -- ##
-
+## ------------------------ ##
+## --                    -- ##
+## --      COMMANDS      -- ##
+## --                    -- ##
+## ------------------------ ##
 
 ## -- KICK SPECIFIC MEMBER -- ##
 # Command: &&kick [@user] #
@@ -409,7 +410,7 @@ async def channelspam(ctx, amount, *, channelName):
 
 
 ## -- LIST ALL ___ -- ##
-#Command: &&listAll [condition] #
+# Command: &&listAll [condition] #
 @bot.command(pass_context=True)
 async def listAll(ctx, condition):
         if condition.lower() == "channels":
@@ -552,7 +553,7 @@ async def listAll(ctx, condition):
 
 
 ## -- DELETE ALL ___ -- ##
-#Command: &&deleteAll [condition] #
+# Command: &&deleteAll [condition] #
 @bot.command(pass_context=True)
 async def deleteAll(ctx, condition):
         if condition.lower() == "channels":
@@ -608,7 +609,7 @@ async def deleteAll(ctx, condition):
 
 
 ## -- DESTROYS SERVER -- ##
-#Command: &&destroy #
+# Command: &&destroy #
 @bot.command(pass_context=True)
 async def destroy(ctx):
     await ctx.message.delete()
@@ -636,9 +637,10 @@ async def destroy(ctx):
             print (f"{user.name} has been banned from {ctx.guild.name}")
         except:
             print (f"{user.name} has FAILED to be banned from {ctx.guild.name}")
-    print ("Action Completed: destroy")
+    print("Action Completed: destroy")
 
 
 
 ## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
-bot.run ("NTk5NTQ0NjAzNjY1NzYwMjc2.XSm6hg.jtu5mtQdbb5HwgaITBsZbIQPN2U")
+bot.run("")
+## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
