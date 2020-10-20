@@ -6,15 +6,14 @@
 ##### Current Version: v1.1.9
 ##### Contributors: 
  - Dante
- - Sreud
-<<<<<<< HEAD
+ - Rehoqa <<< HEAD
 
 =======
 >>>>>>> f076b29123879c8f1666fa9da8b6fe658a6923e6
 ----------------------
 
 ## - nuke_uwu Commands -
-Command Prefix: *&&*
+Command Prefix: *$*
 
 ### - 
 
@@ -85,3 +84,7 @@ Description: Deletes all of the specified server items. Will print statistics in
 ## destroy
 #### Usage: destroy
 Description: Meant to be used to wipe a server. It will delete all emojis, channels, roles, then ban all users. Be very careful with this feature. (Functional - Untested) 
+
+## help
+#### Usage: Lists all commands
+Description Lists all of the commands that have been added and then gives a brief description on how to use them

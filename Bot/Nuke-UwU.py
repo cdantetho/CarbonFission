@@ -23,17 +23,6 @@ import json
 from discord.utils import get
 
 
-## --                    -- ##
-## --   INITIALIZATION   -- ##
-## --                    -- ##
-
-print("Bot Status: Loading...")
-
-## -- Declares the bot, passes it a prefix and lets it know to (hopefully) only listen to itself. -- ##
-bot = commands.Bot(command_prefix='&&')
-client = commands.Bot(command_prefix='&&')
-bot.remove_command('help')
-
 ## -- Sets Global Variables -- ##
 consoleDivider = "\n" + "\n" + "|======--------------------------------------------------------------------------------======|" + "\n"
 consoleDividerSmall = "\n" + "|==---------------------------==|" + "\n"
@@ -41,16 +30,29 @@ consoleNewLine = " " #When you reference this in a print function, it will gener
 consoleSpace = "\n" #When you reference this in a print function, it will generate two empty lines.
 
 
-commandRan = ""
+## --                    -- ##
+## --   INITIALIZATION   -- ##
+## --                    -- ##
 
+
+print("Bot Status: Loading...")
+
+
+## -- Declares the bot, passes it a prefix and lets it know to (hopefully) only listen to itself. -- ##
+bot = commands.Bot(command_prefix='$')
+client = commands.Bot(command_prefix='$')
+bot.remove_command('help')
+
+
+commandRan = ""
 
 
 ## -- BOT IS READY -- ##
 @bot.event
 async def on_ready():
-#BOT STATUS#
+    #BOT STATUS#
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Game('Nuking Servers Omegalul'))
     print(f"Bot Status: Online!")
-
 
 
 
@@ -62,12 +64,14 @@ async def on_ready():
 ## --                    -- ##
 ## ------------------------ ##
 
+
 ## -- KICK SPECIFIC MEMBER -- ##
-# Command: &&kick [@user] #
+# Command: $kick [@user] #
 @bot.command(pass_context=True)
 async def kick(ctx, user : discord.Member):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&kick"
+    commandRan = "$kick"
     print (f"Command Called: {commandRan}")
     await ctx.guild.kick(user)
     print (f"{user.name} has been kicked from {ctx.guild.name}")
@@ -76,11 +80,12 @@ async def kick(ctx, user : discord.Member):
 
 
 ## -- KICK ALL MEMBERS -- ##
-# Command: &&kickAll #
+# Command: $kickAll #
 @bot.command(pass_context=True)
 async def kickAll(ctx):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&kickAll"
+    commandRan = "$kickAll"
     print (f"Command Called: {commandRan}")
 
     #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -113,11 +118,12 @@ async def kickAll(ctx):
 
 
 ## -- BAN SPECIFIC MEMBER -- ##
-# Command: &&ban [@user] #
+# Command: $ban [@user] #
 @bot.command(pass_context=True)
 async def ban(ctx, user : discord.Member):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&ban"
+    commandRan = "$ban"
     print (f"Command Called: {commandRan}")
     await ctx.guild.ban(user)
     print (f"{user.name} has been banned from {ctx.guild.name}")
@@ -126,11 +132,12 @@ async def ban(ctx, user : discord.Member):
 
 
 ## -- BAN ALL MEMBERS -- ##
-# Command: &&banAll #
+# Command: $banAll #
 @bot.command(pass_context=True)
 async def banAll(ctx):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&banAll"
+    commandRan = "$banAll"
     print (f"Command Called: {commandRan}")
     print (f"Attempting to ban all members in {ctx.guild.name}.")
 
@@ -163,11 +170,12 @@ async def banAll(ctx):
 
 
 ## -- RENAME SINGULAR MEMBER -- ##
-# Command: &&rename [@user] [name] #
+# Command: $rename [@user] [name] #
 @bot.command(pass_context=True)
 async def rename(ctx, user : discord.Member, *, rename_to):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&rename"
+    commandRan = "$rename"
     print (f"Command Called: {commandRan}")
 
     print (f"Attempting to rename {user.name} to '{rename_to}' in {ctx.guild.name}.")
@@ -200,11 +208,12 @@ async def rename(ctx, user : discord.Member, *, rename_to):
 
 
 ## -- RENAME ALL MEMBERS -- ##
-#Command: &&renameAll [name] #
+#Command: $renameAll [name] #
 @bot.command(pass_context=True)
 async def renameAll(ctx, *, rename_to):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&renameAll"
+    commandRan = "$renameAll"
     print (f"Command Called: {commandRan}")
 
     #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -234,7 +243,8 @@ async def renameAll(ctx, *, rename_to):
             except:
                 numberFailed += 1
                 print (f"{user.name} has NOT been renamed to {rename_to} in {ctx.guild.name}. Do you have the required permissions to rename this user?")
-
+    
+    
     # Command Info #
     print (consoleDivider)
     print (f"Details:")
@@ -252,11 +262,12 @@ async def renameAll(ctx, *, rename_to):
 
 
 ## -- MESSAGE SINGULAR MEMBER -- ##
-# Command: &&dm [@user] [message] #
+# Command: $dm [@user] [message] #
 @bot.command(pass_context=True)
 async def dm(ctx, user : discord.Member, *, message):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&dm"
+    commandRan = "$dm"
     print (f"Command Called: {commandRan}")
 
     print (f"Attempting to DM {user.name} the message '{message}' in {ctx.guild.name}.")
@@ -267,16 +278,17 @@ async def dm(ctx, user : discord.Member, *, message):
     except:
         print(f"{user.name} has NOT recieved the message '{message}'.")
     print (f"Successfuly DM'd {user.name} the message '{message}' in {ctx.guild.name}.")
-    print ("Action Completed: &&dm")
+    print ("Action Completed: $dm")
 
 
 
 ## -- MESSAGE ALL MEMBERS -- ##
-# Command: &&dmAll [message] #
+# Command: $dmAll [message] #
 @bot.command(pass_context=True)
 async def dmAll(ctx, *, message):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&dmAll"
+    commandRan = "$dmAll"
     print (f"Command Called: {commandRan}")
 
     #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -309,11 +321,12 @@ async def dmAll(ctx, *, message):
 
 
 ## -- SPAM MESSAGE -- ##
-#Command: &&spam [amount] [message] #
+#Command: $spam [amount] [message] #
 @bot.command(pass_context=True)
 async def spam(ctx, amount, *, message):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&spam"
+    commandRan = "$spam"
     print (f"Command Called: {commandRan}")
 
     print (f"Attempting to spam '{message}' {amount} times in {ctx.guild.name}.")
@@ -342,11 +355,12 @@ async def spam(ctx, amount, *, message):
 
 
 ## -- SPAM CREATE ROLES -- ##
-# Command: &&rolespam [amount] [roleName]  #
+# Command: $rolespam [amount] [roleName]  #
 @bot.command(pass_context=True)
 async def rolespam(ctx, amount, *, roleName):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&rolespam"
+    commandRan = "$rolespam"
     print (f"Command Called: {commandRan}")
 
     print (f"Attempting to create {amount} versions of a role called '{roleName}' in {ctx.guild.name}.")
@@ -376,11 +390,12 @@ async def rolespam(ctx, amount, *, roleName):
 
 
 ## -- SPAM CREATE CHANNELS -- ##
-# Command: &&channelspam [amount] [channelName] #
+# Command: $channelspam [amount] [channelName] #
 @bot.command(pass_context=True)
 async def channelspam(ctx, amount, *, channelName):
+    await ctx.message.delete()
     #Sets commandRan to the command name
-    commandRan = "&&channelspam"
+    commandRan = "$channelspam"
     print (f"Command Called: {commandRan}")
 
     print (f"Attempting to create {amount} versions of a text channel called '{channelName}' in {ctx.guild.name}.")
@@ -408,14 +423,14 @@ async def channelspam(ctx, amount, *, channelName):
     print (consoleDivider)
 
 
-
-## -- LIST ALL ___ -- ##
-# Command: &&listAll [condition] #
+    ## -- LIST ALL ___ -- ##
+# Command: $listAll [condition] #
 @bot.command(pass_context=True)
 async def listAll(ctx, condition):
+        await ctx.message.delete()
         if condition.lower() == "channels":
             #Sets commandRan to the command name
-            commandRan = "&&listAll channels"
+            commandRan = "$listAll channels"
             print (f"Command Called: {commandRan}")
 
             #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -443,7 +458,7 @@ async def listAll(ctx, condition):
 
         elif condition.lower() == "roles":
             #Sets commandRan to the command name
-            commandRan = "&&listAll roles"
+            commandRan = "$listAll roles"
             print (f"Command Called: {commandRan}")
 
             #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -471,7 +486,7 @@ async def listAll(ctx, condition):
 
         elif condition.lower() == "emojis":
             #Sets commandRan to the command name
-            commandRan = "&&listAll emojis"
+            commandRan = "$listAll emojis"
             print (f"Command Called: {commandRan}")
 
             #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -499,7 +514,7 @@ async def listAll(ctx, condition):
 
         elif condition.lower() == "all":
             #Sets commandRan to the command name
-            commandRan = "&&listAll all"
+            commandRan = "$listAll all"
             print (f"Command Called: {commandRan}")
 
             #These variables are used to track the amount of times the command succeded and failed (try = succeeded, except = failed.)
@@ -552,21 +567,23 @@ async def listAll(ctx, condition):
             print (consoleDivider)
 
 
+
 ## -- DELETE ALL ___ -- ##
-# Command: &&deleteAll [condition] #
+# Command: $deleteAll [condition] #
 @bot.command(pass_context=True)
 async def deleteAll(ctx, condition):
+        await ctx.message.delete()
         if condition.lower() == "channels":
-            print ("Command Called: &&deleteAll channels")
+            print ("Command Called: $deleteAll channels")
             for channel in list(ctx.guild.channels):
                 try:
                     await channel.delete()
                     print (f"{channel.name} has been deleted in {ctx.guild.name}")
                 except:
                     print (f"{channel.name} has NOT been deleted in {ctx.guild.name}")
-            print ("Command Completed: &&deleteAll channels")
+            print ("Command Completed: $deleteAll channels")
         elif condition.lower() == "roles":
-            print ("Command Called: &&deleteAll roles")
+            print ("Command Called: $deleteAll roles")
             for role in list(ctx.guild.roles):
                 try:
                     await role.delete()
@@ -575,16 +592,16 @@ async def deleteAll(ctx, condition):
                     print (f"You do not have permission to delete {role.name} in {ctx.guild.name}. Is this role above nuke-uwu?")
                 except discord.HTTPException:
                     print (f"Deleting {role.name} in {ctx.guild.name} failed. Is this a bot role?")
-            print ("Command Completed: &&deleteAll roles")
+            print ("Command Completed: $deleteAll roles")
         elif condition.lower() == "emojis":
-            print ("Command Called: &&deleteAll emojis")
+            print ("Command Called: $deleteAll emojis")
             for emoji in list(ctx.guild.emojis):
                 try:
                     await emoji.delete()
                     print (f"{emoji.name} has been deleted in {ctx.guild.name}")
                 except:
                     print (f"{emoji.name} has NOT been deleted in {ctx.guild.name}")
-            print ("Command Completed: &&deleteAll Emojis")
+            print ("Command Completed: $deleteAll Emojis")
         elif condition.lower() == "all":
             for channel in list(ctx.guild.channels):
                 try:
@@ -609,7 +626,7 @@ async def deleteAll(ctx, condition):
 
 
 ## -- DESTROYS SERVER -- ##
-# Command: &&destroy #
+# Command: $destroy #
 @bot.command(pass_context=True)
 async def destroy(ctx):
     await ctx.message.delete()
@@ -641,6 +658,21 @@ async def destroy(ctx):
 
 
 
+## -- HELP -- ##
+# Command: $help #
+@bot.command()
+async def help(self, ctx):
+		commandRan = "$help"
+		await ctx.send('☫ ———————⫷General Info⫸——————— ☫\nHello, This is the command that gives you info!\n "$" is the default prefix for this bot\n\n ˜”*°• :------------Commands-------------: •°*”˜  \n╔ $kick [@user] - Kicks the user pinged from the server\n╠ $kickAll - Kicks all users from the server\n╠ $ban [@user] - Bans the user pinged from the server\n╠ $banAll - Bans all members from the server\n╠ $rename [@user] - Renames the user pinged from the server\n╠ $renameAll - Renames all users in the server\n╠ $dm [@user] - DMs the user pinged\n╠ $dmAll - DMs all members in the server\n╠ $spam [Amount] [Message] - Spams that message in the channel the command is run in\n╠ $rolespam [Amount] [Role Name] - Spam creates roles with the name that is provided\n╠ $channelspam [Amount] [Channel Name] - Spam creates channels with the name that is provided\n╠ $listAll [Condition] - Lists all of the thing that is asked for\n╠ Conditions for list all: Roles, Channels, Emojis, All\n╠ $deleteAll [Condition] - Deletes all of the thing that is asked for\n╠ Conditions for delete all: Roles, Channels, Emojis\n╚ $destroy - Deletes Everything in the server, Literally everything lmaooo\n')
+		# Command Info #
+		print (consoleDivider)
+		print (f"Details:")
+		print (f" Executed command  -  {commandRan}")
+		print (f" Server command was executed in  -  {ctx.guild.name}")
+		print (consoleDivider)
+
+
 ## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
-bot.run("")
+bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.XrRBdmujpRjoD9yNmrh5trANvyc")
 ## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
+
