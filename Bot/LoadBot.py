@@ -75,13 +75,17 @@ async def on_ready():
 ## ------------------------ ##
 
 ## -- Stop Command -- ##
-Command: $stop #
+# Command: $stop #
 @bot.command(pass_context=True)
-async def stop(self, ctx):
+async def stop(ctx):
     await ctx.message.delete()
     commandRan = "$stop"
-    await ctx.bot.disconnect()
+    await ctx.bot.close()
     print (f"Bot Has Stopped The Command From Ongoing")
+    if commandRan:
+        bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.-eC_hyAiHiw-uFM1IDbD6tOtoLE")
+    else:
+        bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.-eC_hyAiHiw-uFM1IDbD6tOtoLE")
 
 
 ## -- KICK SPECIFIC MEMBER -- ##
@@ -699,5 +703,5 @@ async def help(self, ctx):
 """
 
 ## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
-bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.mohfbBT-wK9XXgj41xT6BNJleHo")
+bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.-eC_hyAiHiw-uFM1IDbD6tOtoLE")
 ## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
