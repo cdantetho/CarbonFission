@@ -32,6 +32,8 @@ class InfoCommands(commands.Cog):
 		self.bot = bot
 
 
+	@commands.Cog.listener()
+
 
 	## -- HELP -- ##
 	# Command: $help #
@@ -45,8 +47,6 @@ class InfoCommands(commands.Cog):
 			print (f" Executed command  -  {commandRan}")
 			print (f" Server command was executed in  -  {ctx.guild.name}")
 			print (consoleDivider)
-
-		
 
 
 def setup(bot):

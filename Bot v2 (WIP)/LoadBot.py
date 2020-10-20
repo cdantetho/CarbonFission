@@ -50,14 +50,14 @@ bot.remove_command('help')
 commandRan = ""
 
 
-for cog in os.listdir(r"C:\Users\fortn\Desktop\Apps\Code Stuff\Discord Bot\Bot"):
-    if cog.endswith(".py"):
+for lol in os.listdir(r"./Bot/cogs"):
+    if lol.endswith(".py"):
         try:
-            cog = (f"cogs{cog.replace('.py', '')}")
-            bot.load_extension(cog)
+            lol = (f"File {lol.replace('.py',  '')}")
+            bot.load_extension(lol)
 
         except Exception as e:
-            print(f'{Cog} cannot be loaded')
+            print(f'{lol} cannot be loaded')
 
 
 ## -- BOT IS READY -- ##
@@ -75,13 +75,13 @@ async def on_ready():
 ## ------------------------ ##
 
 ## -- Stop Command -- ##
-# Command: $stop #
-# @bot.command(pass_context=True)
-# async def stop(self, ctx):
-#    await ctx.message.delete()
-#    commandRan = "$stop"
-#    await ctx.bot.disconnect()
-#    print (f"Bot Has Stopped The Command From Ongoing")
+Command: $stop #
+@bot.command(pass_context=True)
+async def stop(self, ctx):
+    await ctx.message.delete()
+    commandRan = "$stop"
+    await ctx.bot.disconnect()
+    print (f"Bot Has Stopped The Command From Ongoing")
 
 
 ## -- KICK SPECIFIC MEMBER -- ##
@@ -699,5 +699,5 @@ async def help(self, ctx):
 """
 
 ## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
-bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.cwgUjijtofDwkWdt0J4lecT3WQ4")
+bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.mohfbBT-wK9XXgj41xT6BNJleHo")
 ## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
