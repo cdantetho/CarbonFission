@@ -673,6 +673,6 @@ async def help(self, ctx):
 
 
 ## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
-bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.XrRBdmujpRjoD9yNmrh5trANvyc")
+bot.run("")
 ## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
 
