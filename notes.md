@@ -1,10 +1,10 @@
 # CarbonFission Notes
 
 Bot Details: 
-Bot Name: Nuke uwu#2696
-Bot ID: 767920792376836117
-Bot Application Created By: Rehoqa
-Bot Auth Token: NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.XrRBdmujpRjoD9yNmrh5trANvyc
+Bot Name: 
+Bot ID: 
+Bot Application Created By: 
+Bot Auth Token: 
 
 
 CarbonFission Plans & Notes
