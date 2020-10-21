@@ -5,7 +5,7 @@ import discord
 from utils import default
 from utils.data import Bot, HelpFormat
 
-# import config file and auth token file
+# import config and auth token files
 config = default.get("config.json")
 auth = default.get("auth.json")
 
