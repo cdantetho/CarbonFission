@@ -26,7 +26,7 @@ consoleNewLine = " "
 consoleSpace = "\n"
 
 
-class AffectsOneUserCommands(commands.Cog):
+class Commands_oneuser(commands.Cog):
 	def __init__ (self, bot):
 		self.bot = bot
 
@@ -36,5 +36,5 @@ class AffectsOneUserCommands(commands.Cog):
 
 
 def setup(bot):
-	bot.add_cog(AffectsOneUserCommands(bot))
-	print('AffectsOneUserCommands Have Been Loaded!')
+	bot.add_cog(Commands_oneuser(bot))
+	print('Commands_oneuser Have Been Loaded!')

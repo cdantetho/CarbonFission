@@ -27,7 +27,7 @@ consoleNewLine = " "
 consoleSpace = "\n"
 
 
-class InfoCommands(commands.Cog):
+class Commands_info(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -50,5 +50,5 @@ class InfoCommands(commands.Cog):
 
 
 def setup(bot):
-	bot.add_cog(InfoCommands(bot))
-	print('InfoCommands Have Been Loaded!')
+	bot.add_cog(Commands_info(bot))
+	print('Commands_info Have Been Loaded!')

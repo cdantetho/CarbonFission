@@ -27,7 +27,7 @@ consoleNewLine = " "
 consoleSpace = "\n"
 
 
-class DestructionCommands(commands.Cog):
+class Commands_destruction(commands.Cog):
 	def __init__ (self, bot):
 		self.bot = bot
 
@@ -37,6 +37,6 @@ class DestructionCommands(commands.Cog):
 
 
 def setup(bot):
-	bot.add_cog(DestructionCommands(bot))
-	print('DestructionCommands Have Been Loaded!')
+	bot.add_cog(Commands_destruction(bot))
+	print('Commands_destruction Have Been Loaded!')
 

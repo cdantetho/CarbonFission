@@ -26,7 +26,7 @@ consoleNewLine = " "
 consoleSpace = "\n"
 
 
-class AffectsAllUsersCommands(commands.Cog):
+class Commands_allusers(commands.Cog):
 	def __init__ (self, bot):
 		self.bot = bot
 
@@ -36,5 +36,5 @@ class AffectsAllUsersCommands(commands.Cog):
 
 
 def setup(bot):
-	bot.add_cog(AffectsAllUsersCommands(bot))
-	print('AffectsAllUsersCommands Have Been Loaded!')
+	bot.add_cog(Commands_allusers(bot))
+	print('Commands_allusers Have Been Loaded!')

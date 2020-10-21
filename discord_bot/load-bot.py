@@ -68,6 +68,11 @@ async def on_ready():
     print(f"Bot Status: Online!")
 
 
+## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
+bot.run("")
+## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
+
+
 ## ------------------------ ##
 ## --                    -- ##
 ## --      COMMANDS      -- ##
@@ -702,6 +707,3 @@ async def help(self, ctx):
 		print(consoleDivider)
 """
 
-## -- STARTS THE BOT BY PASSING APPLICATION TOKEN -- ##
-bot.run("NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.-eC_hyAiHiw-uFM1IDbD6tOtoLE")
-## -- /\ ADD BOT AUTH TOKEN HERE /\ -- ##
