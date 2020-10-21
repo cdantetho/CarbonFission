@@ -1,6 +1,12 @@
-# CarbonFission - Multi-function Discord bot coded in Python
-----------------------
-## - Description -
+<h1 align="center">
+  <br>
+  <a href="https://github.com/cdantetho/carbonfission"><img src="https://imgur.com/wksgJST.png" alt="CarbonFission - Discord Bot"></a>
+  <br>
+  CarbonFission - Discord Bot
+  <br>
+</h1>
+
+
 ## Multi-function Discord bot coded in Python. 
 #### We're working on our "server cleansing" tools currently, as this is what sets us apart. I started coding this bot when I realized there was no discord bots that allowed me to have full control and wipe roles, channels, and servers at will. The purpose of this bot is to be used for server creation and moderation, not for ill-means or raiding. I just wanted to give myself more control over my server.
 ##### Current Version: v1.1.9
