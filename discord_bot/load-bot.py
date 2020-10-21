@@ -50,7 +50,7 @@ bot.remove_command('help')
 commandRan = ""
 
 
-for lol in os.listdir(r"./Bot/cogs"):
+for lol in os.listdir(r"./discord_bot/cogs"):
     if lol.endswith(".py"):
         try:
             lol = (f"File {lol.replace('.py',  '')}")
