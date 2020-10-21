@@ -1,4 +1,4 @@
-# nuke_uwu Notes
+# CarbonFission Notes
 
 Bot Details: 
 Bot Name: Nuke uwu#2696
@@ -7,12 +7,12 @@ Bot Application Created By: Rehoqa
 Bot Auth Token: NzY3OTIwNzkyMzc2ODM2MTE3.X447-A.XrRBdmujpRjoD9yNmrh5trANvyc
 
 
-nuke_uwu Plans & Notes
+CarbonFission Plans & Notes
 
 
 # Plans:
  
-#### Things to add to Nuke_UwU;
+#### Things to add to CarbonFission;
  - Add a stop current commands command
  - Seperate The commands into seperate cogs
  - Add More 

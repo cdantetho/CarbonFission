@@ -1,4 +1,4 @@
-# nuke_uwu - Multi-function Discord bot coded in Python
+# CarbonFission - Multi-function Discord bot coded in Python
 ----------------------
 ## - Description -
 ## Multi-function Discord bot coded in Python. 
@@ -12,7 +12,7 @@
 
 ----------------------
 
-## - nuke_uwu Commands -
+## - CarbonFission Commands -
 Command Prefix: *$*
 
 ### - 
